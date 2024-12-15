@@ -1,1 +1,157 @@
-<h1>Hello World</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <style>
+    /* Global styles for dark theme */
+    body {
+      font-family: 'Roboto Mono', monospace; /* Tech-inspired font */
+      background-color: #1e1e1e;
+      color: white;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      color: #f1f1f1;
+      font-weight: 600;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      color: #f1f1f1;
+      font-weight: 500;
+    }
+
+    /* Form and input styling */
+    form {
+      background-color: #333;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      width: 350px;
+      text-align: center;
+    }
+
+    label {
+      font-size: 1rem;
+      color: #ddd;
+    }
+
+    input[type="password"] {
+      padding: 12px 20px;
+      font-size: 1rem;
+      margin: 15px 0;
+      border: 2px solid #444;
+      border-radius: 8px;
+      background-color: #222;
+      color: white;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    button {
+      padding: 12px 20px;
+      background-color: #00b0ff;
+      color: white;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      box-sizing: border-box;
+      margin-top: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #008ecf;
+    }
+
+    /* Hidden content styling */
+    .hidden {
+      display: none;
+    }
+
+    /* Divider styling */
+    .divider {
+      margin: 20px 0;
+      border-top: 2px solid #444;
+      width: 80%;
+    }
+
+    /* Project list styling */
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    ul li {
+      font-size: 1.2rem;
+      margin: 10px 0;
+    }
+
+    ul li a {
+      color: #00b0ff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    ul li a:hover {
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Welcome to My Portfolio</h1>
+
+  <!-- Password form -->
+  <form id="passwordForm">
+    <label for="password">Enter Password:</label><br>
+    <input type="password" id="password" required>
+    <button type="submit">Submit</button>
+  </form>
+
+  <!-- Portfolio content (hidden until password is correct) -->
+  <div id="portfolioContent" class="hidden">
+    <h2>My Projects</h2>
+    <!-- Divider between title and project links -->
+    <div class="divider"></div>
+    <ul>
+      <li><a href="https://github.com/your-username/project1" target="_blank">Project 1</a></li>
+      <li><a href="https://github.com/your-username/project2" target="_blank">Project 2</a></li>
+    </ul>
+  </div>
+
+  <script>
+    const form = document.getElementById('passwordForm');
+    const content = document.getElementById('portfolioContent');
+    const correctPassword = '2025'; // The password to unlock the content.
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const password = document.getElementById('password').value;
+      
+      if (password === correctPassword) {
+        form.style.display = 'none'; // Hide the password form
+        content.classList.remove('hidden'); // Show the portfolio content
+      } else {
+        alert('Incorrect password!');
+      }
+    });
+  </script>
+
+</body>
+</html>
